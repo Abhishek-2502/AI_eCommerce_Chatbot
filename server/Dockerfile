@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y curl gnupg && \
 # Create app directory
 WORKDIR /app
 
-# Install Node dependencies first
+# Install Node dependencies
 COPY package*.json ./
 RUN npm install
 
@@ -17,10 +17,14 @@ RUN npm install
 COPY requirements.txt ./
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
+# Copy environment and key files
+COPY .env ./  
+COPY google-speech-key.json ./
+
 # Copy the rest of your backend code
 COPY . .
 
-# Expose port
+# Expose backend port
 EXPOSE 5000
 
 # Start backend
