@@ -25,7 +25,7 @@ docker run -d -p 5000:5000 backend-app
 docker-compose up --build -d
 
 
-## Files to be added in server
+## Files to be added in server dir
 ### Add .env in server
 
 PORT=5000
@@ -44,3 +44,4 @@ GOOGLE_API_KEY=your_google_api_key
 ## Replace localhost with EC2 IP in following files
 ### client -> src -> utils -> authService.js, socket.js
 ### client -> src -> socket.js
+### server -> socket.js
