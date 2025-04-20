@@ -1,28 +1,32 @@
 # AI_Commerce_Chatbot
 
-## Local
-### client
+
+## Running the Project
+### Local Run
+#### client
 cd client
 npm i 
 npm run dev
 
-### server
+#### server
 cd server
 npm i
 pip install -r requirements.txt
 npm start
 
-## Through Docker
+### Run through Docker
 docker build -t client-app .
 docker run -d -p 5173:5173 client-app
 
 docker build -t backend-app .
 docker run -d -p 5000:5000 backend-app
 
-## Through Docker Compose
+### Run through Docker Compose
 docker-compose up --build -d
 
-## Add .env in server
+
+## Files to be added in server
+### Add .env in server
 
 PORT=5000
 
@@ -33,6 +37,10 @@ REDIS_HOST=localhost
 REDIS_PORT=6379
 GOOGLE_API_KEY=your_google_api_key
 
-## Add google-speech-key.json in server
+### Add google-speech-key.json in server
 
-## Add model.safetensors in server
+### Add model.safetensors in server
+
+## Replace localhost with EC2 IP in following files
+### client -> src -> utils -> authService.js, socket.js
+### client -> src -> socket.js
