@@ -28,15 +28,6 @@ docker-compose up --build -d
 ## Files to be added in server dir
 ### 1. Add .env in server
 
-PORT=5000
-
-MONGO_URI= mongodb+srv://tripathiparth2411:32H6JWhSHyW267Gd@chatbot-cluster.d1xs99b.mongodb.net/?retryWrites=true&w=majority&appName=chatbot-cluster
-
-JWT_SECRET=your_secret_key
-REDIS_HOST=localhost
-REDIS_PORT=6379
-GOOGLE_API_KEY=your_google_api_key
-
 ### 2. Add google-speech-key.json in server
 
 ### 3. Add model.safetensors in server -> ai-model -> customer_chatbot_model
