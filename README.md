@@ -26,7 +26,7 @@ docker-compose up --build -d
 
 
 ## Files to be added in server dir
-### Add .env in server
+### 1. Add .env in server
 
 PORT=5000
 
@@ -37,11 +37,11 @@ REDIS_HOST=localhost
 REDIS_PORT=6379
 GOOGLE_API_KEY=your_google_api_key
 
-### Add google-speech-key.json in server
+### 2. Add google-speech-key.json in server
 
-### Add model.safetensors in server
+### 3. Add model.safetensors in server
 
 ## Replace localhost with EC2 IP in following files
-### client -> src -> utils -> authService.js, socket.js
-### client -> src -> socket.js
-### server -> socket.js
+- client -> src -> utils -> authService.js, socket.js
+- client -> src -> socket.js
+- server -> socket.js
