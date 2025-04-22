@@ -26,11 +26,11 @@ docker-compose up --build -d
 
 
 ## Files to be added in server dir
-### 1. Add .env in server
+1. Add .env in server
 
-### 2. Add google-speech-key.json in server
+2. Add google-speech-key.json in server
 
-### 3. Add model.safetensors in server -> ai-model -> customer_chatbot_model
+3. Add model.safetensors in server -> ai-model -> customer_chatbot_model
 
 ## Replace localhost with EC2 IP in following files
 - server -> socket.js
