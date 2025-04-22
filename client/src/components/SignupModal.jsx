@@ -15,7 +15,6 @@ const SignupModal = ({ onClose }) => {
     password: "",
     phone: ""
   });
-  const [isVoiceActive, setIsVoiceActive] = useState(false); // State for voice input
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
@@ -62,28 +61,6 @@ const SignupModal = ({ onClose }) => {
     }
   };
 
-  // Voice Input Handling
-  const startVoiceInput = (field) => {
-    if (SpeechRecognition) {
-      recognition.start(); // Start the speech recognition
-      setIsVoiceActive(true); // Set voice input active
-    } else {
-      alert("Your browser does not support speech recognition.");
-    }
-
-    recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
-      console.log("🎤 Speech recognized:", transcript);
-      setFormData((prev) => ({ ...prev, [field]: transcript })); // Set recognized text to appropriate field
-      setIsVoiceActive(false); // Stop voice input after result
-    };
-
-    recognition.onerror = (event) => {
-      console.error("Error occurred during speech recognition:", event.error);
-      setIsVoiceActive(false); // Stop voice input on error
-    };
-  };
-
   return (
     <div className="modal-overlay">
       <div className="modal-content">
@@ -101,7 +78,6 @@ const SignupModal = ({ onClose }) => {
                 onChange={handleChange}
                 required
               />
-              <button type="button" onClick={() => startVoiceInput("email")} disabled={isVoiceActive}>🎤</button>
 
               <input
                 type="password"
@@ -111,7 +87,6 @@ const SignupModal = ({ onClose }) => {
                 onChange={handleChange}
                 required
               />
-              <button type="button" onClick={() => startVoiceInput("password")} disabled={isVoiceActive}>🎤</button>
 
               <button type="submit">Log In</button>
             </>
@@ -125,7 +100,6 @@ const SignupModal = ({ onClose }) => {
                 onChange={handleChange}
                 required
               />
-              <button type="button" onClick={() => startVoiceInput("name")} disabled={isVoiceActive}>🎤</button>
 
               <input
                 type="email"
@@ -135,7 +109,6 @@ const SignupModal = ({ onClose }) => {
                 onChange={handleChange}
                 required
               />
-              <button type="button" onClick={() => startVoiceInput("email")} disabled={isVoiceActive}>🎤</button>
 
               <input
                 type="password"
@@ -145,7 +118,6 @@ const SignupModal = ({ onClose }) => {
                 onChange={handleChange}
                 required
               />
-              <button type="button" onClick={() => startVoiceInput("password")} disabled={isVoiceActive}>🎤</button>
 
               <input
                 type="text"
@@ -154,7 +126,6 @@ const SignupModal = ({ onClose }) => {
                 value={formData.phone}
                 onChange={handleChange}
               />
-              <button type="button" onClick={() => startVoiceInput("phone")} disabled={isVoiceActive}>🎤</button>
 
               <button type="submit">Sign Up</button>
             </>
