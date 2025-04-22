@@ -3,12 +3,9 @@ import "./SignupModal.css";
 import { signupUser, loginUser } from "../utils/authService";
 import socket from "../utils/socket";
 
-// Web Speech API integration for voice input
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition();
-
 const SignupModal = ({ onClose }) => {
   const [isLogin, setIsLogin] = useState(false); // Toggle login/signup
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -78,7 +75,6 @@ const SignupModal = ({ onClose }) => {
                 onChange={handleChange}
                 required
               />
-
               <input
                 type="password"
                 name="password"
@@ -87,7 +83,6 @@ const SignupModal = ({ onClose }) => {
                 onChange={handleChange}
                 required
               />
-
               <button type="submit">Log In</button>
             </>
           ) : (
@@ -100,7 +95,6 @@ const SignupModal = ({ onClose }) => {
                 onChange={handleChange}
                 required
               />
-
               <input
                 type="email"
                 name="email"
@@ -109,7 +103,6 @@ const SignupModal = ({ onClose }) => {
                 onChange={handleChange}
                 required
               />
-
               <input
                 type="password"
                 name="password"
@@ -118,7 +111,6 @@ const SignupModal = ({ onClose }) => {
                 onChange={handleChange}
                 required
               />
-
               <input
                 type="text"
                 name="phone"
@@ -126,7 +118,6 @@ const SignupModal = ({ onClose }) => {
                 value={formData.phone}
                 onChange={handleChange}
               />
-
               <button type="submit">Sign Up</button>
             </>
           )}
